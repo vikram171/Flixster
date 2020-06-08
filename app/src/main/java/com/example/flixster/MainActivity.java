@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
 
     List<Movie> movies;
+    MovieAdapter movieAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         movies = new ArrayList<>();
 
         //Create the adapter
-        final MovieAdapter movieAdapter = new MovieAdapter(this, movies);
+        movieAdapter = new MovieAdapter(this, movies);
 
         //Set the adapter on the recycler view
         rvMovies.setAdapter(movieAdapter);
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "OnSuccess");
                 JSONObject jsonObject = json.jsonObject;
                 try {
-                    JSONArray results = jsonObject.getJSONArray("Results");
+                    JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG,"Results: " + results.toString());
                     movies.addAll(Movie.fromJasonArray(results));
                     movieAdapter.notifyDataSetChanged();
