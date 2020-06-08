@@ -2,7 +2,6 @@ package adapters;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.flixster.R;
-import com.example.flixster.models.Movie;
+import models.Movie;
 
 import java.util.List;
 
